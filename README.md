@@ -16,6 +16,9 @@ props -> function -> DOM
 
 (state, props) -> component -> DOM
 ```
+Las class component extienden de React.Component
+props: Objeto con propiedades
+state: Objeto con estados, accesible solo en class components
 
 ### Manejo de estados
 
@@ -23,10 +26,12 @@ El estado puede cambiar mintras los props se mantengan fijos, los componentes pu
 
 Las class coomponent deben tener un metodo llamado render
 
-```jsx
-class Button extends React.Componet {
+El metodo setState se ocupa para cambiar el estado de los elementos del objeto state
 
-    state = { counter: 0 }; // equivale al constructor
+```jsx
+class Button extends React.Component {
+
+    state = { counter: 0 }; // Equivale al constructor
 
     // setState Metodo built-in de React disponible en todas las instancias de componentes
     
@@ -50,6 +55,12 @@ class Button extends React.Componet {
 Este ejemplo corre en https://jscomplete.com/repl/
 
 Los estados se manejan en la class component App, por referencia se les pasa las funciones que maneja el estado del contador
+
+Con JSX y Virtual DOM componemos HTML con una sintaxis similiar a HTML y javascript
+
+ReactDOM.render() toma dos argumentos, el componente a renderizar y el elemento HTML en donde se va a alojar lo renderizado por React
+
+onClick, onChange, onSubmit son eventos nativos de React
 
 ```jsx
 class Button extends React.Component {
@@ -75,7 +86,7 @@ const Result = (props) => {
 
 class App extends React.Component {
 
-    state = { counter: 0 }; // equivale al constructor
+    state = { counter: 0 }; // Equivale al constructor
 
     // setState Metodo built-in de React disponible en todas las instancias de componentes
 
@@ -98,5 +109,9 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<App />, mountNode); // Renderiza el componente en el DOM del navegador
 ```
+
+### Card de github
+
+Recomendación: Usar siempre functions components a no ser que se necesite usar estados y cuando se necesite personalizar eventos
