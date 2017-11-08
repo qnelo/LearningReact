@@ -9,7 +9,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-  <Router history={browserHistory} routes={routes}/>,
+  <Router history={browserHistory} routes={routes} />,
   document.getElementById('root')
 );
 
