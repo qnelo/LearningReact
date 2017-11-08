@@ -115,3 +115,67 @@ ReactDOM.render(<App />, mountNode); // Renderiza el componente en el DOM del na
 ### Card de github
 
 Recomendación: Usar siempre functions components a no ser que se necesite usar estados y cuando se necesite personalizar eventos
+
+En React, se necesita usar "className" en lugar de solo class, esto hara match con la API del DOM de javascript para los elementos que tengamos en un archivo de CSS con esos elementos
+
+```jsx
+
+//.info {
+//	color: blue;
+//}
+
+const CardWithSCSStyle = (props) => {
+	return (
+  	<div>
+  	  <img src="http://placehold.it/75"/>
+      <div className="info"> 
+      	<div>Name here...</div>
+        <div>Copany Name here...</div>
+      </div>
+  	</div>
+  );
+};
+```
+
+Pero React se trata de manejar HTML con javascript, por lo que hay otra forma de hacer este trabajo sin tener los problemas de manejo de CSS
+
+A la propiedad style, que es como los eventos, en vez de pasarle un string se le pasa un objeto en el que le especificaremos los elementos que ese elemento queremos que utilice
+
+```jsx
+const Card = (props) => {
+    return (
+        <div style={{margin: '1em'}}>
+            <img width="75" src={props.avatar_url} />
+            <div style={{display:'inline-block', marginLeft:10}}> 
+                <div style={{fontSize: '1.25em', fontWeigth: 'bold'}}>
+                    {props.name}
+                </div>
+            <div>{props.company}</div>
+        </div>
+        </div>
+    );
+};
+
+const data = [
+    {
+        name: "K",
+        avatar_url: "https://avatars2.githubusercontent.com/u/4587858?s=460&v=4",
+        company: "Becual"
+    },
+    {
+        name: "KK",
+        avatar_url: "https://avatars2.githubusercontent.com/u/4587858?s=460&v=4",
+        company: "Becual Becual"
+    },
+]
+
+const CardList = (props) => {
+    return (
+        <div>
+            {props.cards.map(card => <Card {...card}/>)}
+        </div>
+    );
+};
+
+ReactDOM.render(<CardList cards={data}/>, mountNode);
+```
