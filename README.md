@@ -112,7 +112,7 @@ class App extends React.Component {
 ReactDOM.render(<App />, mountNode); // Renderiza el componente en el DOM del navegador
 ```
 
-### Card de github
+### Cards
 
 Recomendación: Usar siempre functions components a no ser que se necesite usar estados y cuando se necesite personalizar eventos
 
